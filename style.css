@@ -22,12 +22,14 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   background-color: var(--very-dark-blue);
 }
 main {
+  min-height: 260px;
   width: 100%;
   height: 100%;
   margin: 15% auto;
@@ -37,13 +39,14 @@ main {
 }
 
 .card {
+  max-width: 1500px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   background-color: var(--dark-desaturated-blue);
   width: 90%;
   height: 80%;
-  border-radius: 15px;
+  border-radius: 10px;
   overflow: hidden;
 }
 .img-div {
@@ -60,11 +63,11 @@ main {
 
 .content {
   padding: 5% 0;
-  box-sizing: border-box;
   color: white;
   display: flex;
   align-items: center;
   flex-direction: column;
+  justify-content: space-around;
 }
 
 header {
@@ -75,6 +78,7 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  flex: 1;
 }
 header h1 {
   font-size: 1.8rem;
@@ -84,9 +88,10 @@ header h1 {
 }
 header p {
   text-align: center;
-  font-size: 15px;
-  line-height: 22px;
+  font-size: 0.8rem;
+  line-height: 1.2rem;
   font-weight: 400;
+  margin-bottom: 5%;
   color: var(--slightly-transparent-white-main);
 }
 .insights {
@@ -94,8 +99,10 @@ header p {
 }
 
 section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   padding: 5% 0;
-
   text-align: center;
   font-family: "Inter", sans-serif;
 }
@@ -107,17 +114,34 @@ section p span {
   display: block;
   text-transform: uppercase;
   color: var(--slightly-transparent-white-stat);
-  font-size: 12px;
+  font-size: 0.8rem;
   letter-spacing: 1px;
   font-weight: 400;
   padding: 10% 0;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) and (orientation: portrait) {
+  header h1 {
+    font-size: 3rem;
+  }
+  header p {
+    font-size: 2rem;
+    line-height: 2.4rem;
+  }
+  section p {
+    font-size: 2rem;
+  }
+
+  section {
+    flex-direction: row;
+    width: 80%;
+  }
+}
+
+@media (orientation: landscape) {
   main {
-    width: 90vw;
-    height: 75vh;
-    margin: 0;
+    width: 95vw;
+    height: 85vh;
   }
   body {
     width: 100vw;
@@ -126,6 +150,7 @@ section p span {
     justify-content: center;
     align-items: center;
   }
+
   .card {
     display: flex;
     flex-direction: row-reverse;
@@ -135,5 +160,71 @@ section p span {
   }
   .content {
     width: 50%;
+  }
+
+  header h1,
+  header p {
+    text-align: left;
+    margin-bottom: 0;
+  }
+
+  section {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80%;
+    text-align: left;
+    padding: 0;
+  }
+  section p,
+  header h1 {
+    font-size: 1rem;
+  }
+  section p span,
+  header p {
+    font-size: 0.6rem;
+  }
+}
+
+@media (min-width: 1024px) and (orientation: landscape) {
+  main {
+    width: 85vw;
+    height: 75vh;
+  }
+  section p {
+    font-size: 1.5rem;
+  }
+  header h1 {
+    font-size: 2rem;
+  }
+  section p span,
+  header p {
+    font-size: 0.8rem;
+  }
+}
+
+@media (min-width: 1366px) and (orientation: landscape) {
+  header h1 {
+    font-size: 2.2rem;
+    letter-spacing: 1.5px;
+  }
+  header p {
+    font-size: 1.2rem;
+    line-height: 2rem;
+  }
+  section {
+    padding: 0px 10% 0px 0px;
+  }
+}
+@media (min-width: 1600px) and (orientation: landscape) {
+  header h1 {
+    font-size: 3rem;
+    letter-spacing: 2px;
+  }
+  header p {
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+  }
+  section p span {
+    font-size: 1rem;
   }
 }
